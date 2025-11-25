@@ -49,13 +49,22 @@ Object.assign(grid.style, {
 //     return randomHexcode;
 // }
 
-if(userInput < 1 || userInput > 100)
+
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
     grid.innerHTML = "";
     console.log(e);
-    let userInput = input.value;
+    let userInput = Number(input.value);
     console.log(userInput);
+
+    if(
+    (userInput < 1 || userInput > 100)||
+    (!Number.isInteger(userInput))
+    ){
+    alert("ERROR.")
+    }
+
+    else {
     let gridWidth = userInput;
     let area = gridWidth * gridWidth;
     let squareSize = gridSize / gridWidth;
@@ -79,10 +88,10 @@ form.addEventListener("submit", (e)=>{
     square.style.backgroundColor = "black";
     square.style.opacity = opacity;
 })
+}
 
 }
 })
- 
 
     
 
