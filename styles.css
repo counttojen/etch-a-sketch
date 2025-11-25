@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 10px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+.square {
+    box-sizing: border-box;
+}
+
+.square.moused-over {
+    background-color: blue;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
