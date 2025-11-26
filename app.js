@@ -46,16 +46,36 @@ function useUserInput(userInput){
         width: gridWidth + "px",
         })
 
+   
+
     for(let i = 1; i <= area; i++){
         const square = document.createElement("div");
         square.classList.add("square");
         square.id = i;
         grid.append(square);
 
+
     Object.assign(square.style, {
         height: squareSize + "px",
          width: squareSize + "px",
     })
+
+    let opacity = .1;
+     function changeSquareColor(square){
+        if(opacity < 1){
+            opacity += .1;
+        }
+        
+        Object.assign(square.style, {
+        backgroundColor: "black",
+        opacity: opacity,
+    })
+}
+    
+    square.addEventListener("mouseover", ()=>{
+        changeSquareColor(square);
+    });
+   
 }
 }
 
@@ -66,4 +86,5 @@ function getUserInput(e){
 }
 
 
-form.addEventListener("submit", getUserInput)
+
+form.addEventListener("submit", getUserInput);
