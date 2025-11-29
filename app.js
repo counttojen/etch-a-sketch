@@ -10,7 +10,7 @@ form.classList.add("select-form");
 container.append(form);
 const selectLabel = document.createElement("label");
 selectLabel.classList.add("select-label");
-selectLabel.textContent = "Enter a number from 1-100 to generate a sketch area:";
+selectLabel.textContent = "Select a number to generate a sketch area:";
 form.append(selectLabel);
 const select = document.createElement("select");
 select.classList.add("select");
@@ -29,7 +29,7 @@ form.append(submit);
     height: `${gridHeight}px`,
 })
 
-for (let i = 4; i <= 100; i++) {
+for (let i = 10; i <= 100; i++) {
     if(gridWidth % i === 0 && gridHeight % i === 0){
     const option = document.createElement("option");
     option.value = i; 
@@ -37,9 +37,6 @@ for (let i = 4; i <= 100; i++) {
     select.appendChild(option);
     }
 }
-
-
-
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
@@ -56,8 +53,6 @@ form.addEventListener("submit", (e)=> {
     height: `${gridHeight}px`,
 })
 
-
-
     for(let i = 1; i <= area; i++){
     const square = document.createElement("div");
     square.classList.add("square");
@@ -68,5 +63,14 @@ form.addEventListener("submit", (e)=> {
         width: `${squareSize}px`,
         height: `${squareSize}px`,
     })
+
+    let opacity = .1;
+    
+    square.addEventListener("mouseover", ()=>{
+    opacity += .1;
+    square.style.backgroundColor = "black";
+    square.style.opacity = opacity;
+})
 }
 });
+
